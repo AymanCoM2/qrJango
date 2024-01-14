@@ -7,7 +7,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 script_directory = os.path.join(BASE_DIR, 'qrProject/static')
-image_path = os.path.join(script_directory, "")
+image_path = os.path.join(script_directory, "code.png")
 
 
 def getTheQr(request):
@@ -32,5 +32,5 @@ def getTheQr(request):
             qr.make(fit=True)
             img = qr.make_image(fill_color="black", back_color="white")
             img = img.resize((size, size), Image.ANTIALIAS)
-            img.save(image_path+"code.png", dpi=(dpi, dpi))
+            img.save(image_path, dpi=(dpi, dpi))
             return render(request, 'home.html', context)
